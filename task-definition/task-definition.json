@@ -1,0 +1,33 @@
+{
+  "networkMode": "bridge",
+  "containerDefinitions": [
+    {
+      "name": "merchant-identity-api",
+      "image": "679045690091.dkr.ecr.eu-west-2.amazonaws.com/ckotech/merchant-identity-api:0.1.0-unstable0006",
+      "environment": [
+        {
+          "name": "ASPNETCORE_URLS",
+          "value": "http://*:5000/"
+        },
+        {
+          "name": "MERCHANTINFO_Database:DatabaseConnectionString",
+          "value": ""
+        },
+        {
+          "name": "MERCHANTINFO_API:PathBase",
+          "value": "/merchant-identity"
+        }
+      ],
+      "cpu": 0,
+      "portMappings": [
+      {
+	      "hostPort": 0,
+	      "containerPort": 5000,
+	      "protocol": "tcp"
+      }
+      ],      
+      "memory": 300,
+      "essential": true
+    }
+  ]
+}
